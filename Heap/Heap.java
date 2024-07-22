@@ -8,12 +8,12 @@ public class Heap{
 
     public Heap() {
         heapSize = 0;
-        heap = new ArrayList();
+        heap = new ArrayList<>();
     }
 
     public Heap(int k) {
         heapSize = 0;
-        heap = new ArrayList();
+        heap = new ArrayList<>();
     }
  
     public void insert(int val) {
@@ -44,11 +44,11 @@ public class Heap{
 
         while(!q.isEmpty()) {
             int size = q.size();
-            ArrayList<Integer> subset = new ArrayList();
+            ArrayList<Integer> subset = new ArrayList<>();
 
             for (int idx = 0; idx < size; idx++) {
                 int parent = q.poll();
-                subset.add(parent);
+                subset.add(heap.get(parent));
                 int leftChild = 2 * parent + 1, rightChild = 2 * parent + 2;
                 
                 if(leftChild < heapSize) {
@@ -94,16 +94,20 @@ public class Heap{
 
         int leftChild = 2 * parent + 1, rightChild = 2 * parent + 2;
 
-        if(leftChild < heapSize && heap.get(leftChild) > heap.get(parent)) {
-            swap(leftChild, parent);
-            parent = leftChild;
+        int greatestChild = parent;
+
+        if(leftChild < heapSize && heap.get(leftChild) > heap.get(greatestChild)) {
+            greatestChild = leftChild;
         }
 
         else if(rightChild < heapSize && heap.get(rightChild) > heap.get(parent)) {
-            swap(rightChild, parent);
-            parent = rightChild;
+            greatestChild = rightChild;
         }
 
-        heapifyDown(parent);
+        if(parent != greatestChild){
+            swap(parent, greatestChild);
+            heapifyDown(greatestChild);
+        }
+        
     }
 }

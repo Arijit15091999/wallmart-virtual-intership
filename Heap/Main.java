@@ -6,6 +6,17 @@ public class Main{
             heap.insert(index);
         
         System.err.println(heap.printHeap());
+        // System.out.println(heap.peek());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.out.println(heap.pop());
+        System.err.println(heap.printHeap());
     }
 
 }
