@@ -1,10 +1,10 @@
 import java.util.*;/**
  * Heap
  */
-public class Heap {
+public class BinaryHeap {
     private final ArrayList<Integer> heap;
 
-    public Heap() {
+    public BinaryHeap() {
         heap = new ArrayList<>();
     }
 
